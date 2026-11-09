@@ -270,7 +270,7 @@ footer .name{font-family:var(--script);font-size:46px;color:#fff;line-height:1}
   <div class="wrap">
     <span class="eyebrow">Acceso</span>
     <h2 id="t-qr">Tu código QR</h2>
-    <p class="lead">Presenta este código en la entrada.</p>
+    <p class="lead">Presenta este código en la entrada. Te recomendamos guardarlo o tomarle captura.</p>
     <div class="qrbox">
       <div id="qr" role="img" aria-label="Código QR de acceso"></div>
       <div class="code" data-guest>Familia Skibidi</div>
@@ -312,8 +312,9 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     pasesDefault:4
   };
   var qs=new URLSearchParams(location.search);
-  var guest=(qs.get("invitado")||C.invitadoDefault).slice(0,60);
-  var passes=Math.max(1,Math.min(20,parseInt(qs.get("pases")||C.pasesDefault,10)||C.pasesDefault));
+  var guest=(qs.get("f")||qs.get("invitado")||C.invitadoDefault).slice(0,60);
+  var passes=Math.max(1,Math.min(30,parseInt(qs.get("p")||qs.get("pases")||C.pasesDefault,10)||C.pasesDefault));
+  var given=(qs.get("c")||"").toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,10);
   document.querySelectorAll("[data-guest]").forEach(function(e){e.textContent=guest});
   document.querySelectorAll("[data-passes]").forEach(function(e){e.textContent=passes});
   document.querySelectorAll("[data-passes-label]").forEach(function(e){e.textContent=passes===1?"lugar":"lugares"});
@@ -339,17 +340,18 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   document.querySelectorAll('input[name="go"]').forEach(function(r){r.addEventListener("change",function(){sel.disabled=(r.value==="no"&&r.checked);});});
   document.getElementById("rsvp").addEventListener("submit",function(e){e.preventDefault();
     var go=document.querySelector('input[name="go"]:checked').value, name=document.getElementById("f-name").value.trim(), msg=document.getElementById("f-msg").value.trim();
-    var t=go==="si"?("¡Hola! Confirmo mi asistencia a los XV años de "+C.nombre+".\nNombre: "+name+"\nAsistentes: "+sel.value):("Hola, lamentablemente no podré asistir a los XV años de "+C.nombre+".\nNombre: "+name);
+    var t=go==="si"?("¡Hola! Confirmo mi asistencia a los XV años de "+C.nombre+".\nNombre: "+name+"\nAsistentes: "+sel.value+" de "+passes):("Hola, lamentablemente no podré asistir a los XV años de "+C.nombre+".\nNombre: "+name);
+    t+="\nCódigo: "+code;
     if(msg)t+="\nMensaje: "+msg;
     var a=document.createElement("a");a.href="https://wa.me/"+C.whatsapp+"?text="+encodeURIComponent(t);a.target="_blank";a.rel="noopener noreferrer";document.body.appendChild(a);a.click();a.remove();});
 
   function hash(s){var h=5381;for(var i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))>>>0;return h.toString(36).toUpperCase().slice(-6)}
-  var code=hash(guest+"|"+passes+"|"+C.nombre);
+  var code=given||("EJ"+hash(guest+"|"+passes+"|"+C.nombre).slice(-4));
   document.getElementById("code").textContent=code;
-  var qr=qrcode(0,"M");qr.addData("XV "+C.nombre+" | "+guest+" | "+passes+" lugares | "+code,"Byte");qr.make();
+  var qr=qrcode(0,"M");qr.addData("XV1|"+code+"|"+guest+"|"+passes,"Byte");qr.make();
   var svg=qr.createSvgTag({cellSize:6,margin:2,scalable:true});
   document.getElementById("qr").innerHTML=svg;
-  document.getElementById("qrdl").href="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(svg);
+  var dl=document.getElementById("qrdl");dl.href=qr.createDataURL(10,4);dl.download="QR-acceso-"+code+".gif";
 
   var al=document.getElementById("album");
   if(C.album){al.href=C.album;al.target="_blank";al.rel="noopener noreferrer";}

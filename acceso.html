@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Control de acceso · XV Valentina</title>
+<meta name="theme-color" content="#1E2340">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--night:#1E2340;--night2:#2B3158;--gold:#C9A96E;--ivory:#FBF8F3;--ink:#2A2730;--muted:#6B6472;--line:#E6DED3;--ok:#2E7D4F;--warn:#B7791F;--bad:#B03A3A;
+--script:"Pinyon Script",cursive;--sans:"Montserrat",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--night);color:#fff;font-family:var(--sans);font-size:15px;line-height:1.5;min-height:100vh}
+header{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:560px;margin:0 auto}
+header h1{font-family:var(--script);font-weight:400;font-size:34px;line-height:1;margin:0;color:var(--gold)}
+header a{color:#C9CBE0;font-size:13px}
+main{max-width:560px;margin:0 auto;padding:0 16px 30px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.stat{background:var(--night2);border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;font-size:24px;line-height:1.1;color:#fff}.stat span{font-size:11px;color:#C9CBE0}
+.cam{position:relative;border-radius:16px;overflow:hidden;background:#0E1124;aspect-ratio:1;display:flex;align-items:center;justify-content:center}
+.cam video{width:100%;height:100%;object-fit:cover;display:none}
+.cam.on video{display:block}
+.cam .frame{position:absolute;inset:16%;border:3px solid rgba(201,169,110,.9);border-radius:18px;box-shadow:0 0 0 999px rgba(0,0,0,.28);display:none}
+.cam.on .frame{display:block}
+.cam .ph{text-align:center;padding:20px;color:#C9CBE0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:600 15px var(--sans);padding:13px 18px;border-radius:12px;border:0;background:var(--gold);color:var(--night);cursor:pointer;min-height:48px;text-decoration:none}
+.btn.line{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+.btn.full{width:100%}
+.manual{display:flex;gap:8px;margin-top:12px}
+.manual input{flex:1;font:600 16px ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.25);background:var(--night2);color:#fff;min-width:0}
+.res{display:none;margin-top:14px;border-radius:16px;padding:18px;color:#fff}
+.res.show{display:block}
+.res.ok{background:var(--ok)}.res.warn{background:var(--warn)}.res.bad{background:var(--bad)}
+.res .big{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
+.res h2{font-size:24px;margin:4px 0 2px;line-height:1.2}
+.res p{margin:4px 0}
+.cnt{display:flex;align-items:center;gap:10px;margin:14px 0 6px}
+.cnt button{width:48px;height:48px;border-radius:12px;border:0;background:rgba(255,255,255,.2);color:#fff;font-size:24px;font-weight:700;cursor:pointer}
+.cnt output{font-size:30px;font-weight:700;min-width:44px;text-align:center}
+.res .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.res .btn{background:#fff;color:var(--ink)}
+.res .btn.line{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.log{margin-top:18px}
+.log h3{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#C9CBE0;margin:0 0 8px}
+.log ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.log li{background:var(--night2);border-radius:10px;padding:9px 12px;display:flex;justify-content:space-between;gap:10px;font-size:14px}
+.log li small{color:#C9CBE0;white-space:nowrap}
+.setup{background:var(--night2);border-radius:14px;padding:14px;margin-top:18px;font-size:13px;color:#C9CBE0}
+.setup b{color:#fff}
+.setup .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.setup .btn{font-size:13px;min-height:40px;padding:9px 12px}
+.warnbox{background:#5A4316;color:#FFE8B5;border-radius:12px;padding:12px 14px;margin-bottom:12px;font-size:13px;display:none}
+</style>
+</head>
+<body>
+<header><h1>Control de acceso</h1><a href="panel.html">Panel</a></header>
+<main>
+  <div class="warnbox" id="nolist">Este celular todavía no tiene la lista de invitados. Abajo, en <b>Lista de invitados</b>, carga el respaldo que descargaste del panel.</div>
+  <div class="stats">
+    <div class="stat"><b id="s-in">0</b><span>Personas dentro</span></div>
+    <div class="stat"><b id="s-fam">0</b><span>Familias llegaron</span></div>
+    <div class="stat"><b id="s-tot">0</b><span>Pases totales</span></div>
+  </div>
+  <div class="cam" id="cam">
+    <video id="video" playsinline muted></video><div class="frame" aria-hidden="true"></div>
+    <div class="ph" id="ph"><p>Escanea el QR de cada invitación para registrar la entrada.</p><button class="btn" id="start" type="button">Abrir cámara</button></div>
+  </div>
+  <form class="manual" id="manual" autocomplete="off"><input id="mcode" maxlength="10" placeholder="Código" aria-label="Escribir código manualmente"><button class="btn line" type="submit">Buscar</button></form>
+
+  <div class="res" id="res" role="status" aria-live="assertive">
+    <div class="big" id="r-big"></div><h2 id="r-name"></h2><p id="r-info"></p>
+    <div class="cnt" id="r-cnt"><button type="button" id="minus" aria-label="Menos">−</button><output id="r-n">1</output><button type="button" id="plus" aria-label="Más">+</button><span>personas entrando</span></div>
+    <div class="acts"><button class="btn" id="r-ok" type="button">Registrar entrada</button><button class="btn line" id="r-next" type="button">Escanear siguiente</button></div>
+  </div>
+
+  <div class="log"><h3>Últimas entradas</h3><ol id="log"></ol></div>
+
+  <div class="setup">
+    <b>Lista de invitados</b>
+    <p style="margin:4px 0 0" id="listinfo"></p>
+    <div class="row">
+      <label class="btn line" style="margin:0">Cargar respaldo<input id="imp" type="file" accept=".json,application/json" hidden></label>
+      <button class="btn line" id="exp" type="button">Descargar entradas</button>
+      <button class="btn line" id="reset" type="button">Reiniciar entradas</button>
+    </div>
+  </div>
+</main>
+<canvas id="cv" hidden></canvas>
+<script src="js/jsQR.min.js"></script>
+<script>
+(function(){
+  var KEY="xv_valentina_invitados",EKEY="xv_valentina_entradas";
+  var $=function(id){return document.getElementById(id)};
+  function load(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
+  var list=load(KEY,[]),ent=load(EKEY,{});
+  function saveE(){try{localStorage.setItem(EKEY,JSON.stringify(ent))}catch(e){}}
+  function byCode(c){for(var i=0;i<list.length;i++)if(list[i].c===c)return list[i];return null}
+
+  function stats(){var pin=0,fam=0,tot=0;list.forEach(function(f){tot+=f.p});Object.keys(ent).forEach(function(c){if(ent[c].n){pin+=ent[c].n;fam++}});
+    $("s-in").textContent=pin;$("s-fam").textContent=fam;$("s-tot").textContent=tot;
+    $("nolist").style.display=list.length?"none":"block";
+    $("listinfo").textContent=list.length?("Hay "+list.length+" familias cargadas en este celular."):"No hay lista cargada.";
+    var all=[];Object.keys(ent).forEach(function(c){(ent[c].log||[]).forEach(function(l){all.push({c:c,t:l[0],n:l[1]})})});
+    all.sort(function(a,b){return b.t-a.t});var L=$("log");L.textContent="";
+    all.slice(0,15).forEach(function(x){var f=byCode(x.c),li=document.createElement("li"),s=document.createElement("span"),sm=document.createElement("small");
+      s.textContent=(f?f.n:x.c)+" · "+x.n+(x.n==1?" persona":" personas");sm.textContent=new Date(x.t).toLocaleTimeString("es-MX",{hour:"2-digit",minute:"2-digit"});li.appendChild(s);li.appendChild(sm);L.appendChild(li)});
+    if(!all.length){var li=document.createElement("li");li.textContent="Todavía no entra nadie.";L.appendChild(li)}}
+
+  var cur=null,n=1,busy=false;
+  function show(kind,big,name,info,canEnter,max){var r=$("res");r.className="res show "+kind;$("r-big").textContent=big;$("r-name").textContent=name;$("r-info").textContent=info;
+    $("r-cnt").style.display=canEnter?"flex":"none";$("r-ok").style.display=canEnter?"inline-flex":"none";n=max||1;$("r-n").textContent=n;
+    if(navigator.vibrate)navigator.vibrate(kind==="ok"?80:[60,60,60]);r.scrollIntoView({behavior:"smooth",block:"nearest"})}
+  function check(code,qrName){
+    code=String(code||"").toUpperCase().replace(/[^A-Z0-9]/g,"");busy=true;
+    var f=byCode(code);
+    if(!f){cur=null;show("bad","No válido",qrName||code||"Código vacío",list.length?"Este código no está en la lista de invitados.":"Primero carga la lista de invitados en este celular.",false);return}
+    cur=f;var e=ent[f.c]||{n:0},left=f.p-e.n;
+    if(left<=0){show("warn","Ya entraron todos",f.n,"Sus "+f.p+" pases ya se usaron. Última entrada: "+(e.log&&e.log.length?new Date(e.log[e.log.length-1][0]).toLocaleTimeString("es-MX",{hour:"2-digit",minute:"2-digit"}):"—")+".",false);return}
+    show("ok",e.n?"Bienvenidos de nuevo":"Bienvenidos",f.n,(e.n?("Ya entraron "+e.n+" de "+f.p+". Quedan "+left+"."):(f.p+(f.p==1?" pase":" pases")))+(f.s==="no"?" · Había dicho que no asistiría.":""),true,left)}
+  $("minus").addEventListener("click",function(){if(n>1){n--;$("r-n").textContent=n}});
+  $("plus").addEventListener("click",function(){if(!cur)return;var left=cur.p-((ent[cur.c]&&ent[cur.c].n)||0);if(n<left){n++;$("r-n").textContent=n}});
+  $("r-ok").addEventListener("click",function(){if(!cur)return;var e=ent[cur.c]||(ent[cur.c]={n:0,log:[]});var left=cur.p-e.n;var k=Math.min(n,left);if(k<=0)return;
+    e.n+=k;e.log=e.log||[];e.log.push([Date.now(),k]);saveE();stats();$("r-ok").style.display="none";$("r-cnt").style.display="none";
+    $("r-big").textContent="Entrada registrada";$("r-info").textContent=k+(k==1?" persona":" personas")+" · "+e.n+" de "+cur.p+" pases usados.";setTimeout(next,1800)});
+  function next(){$("res").className="res";cur=null;busy=false;lastTxt="";}
+  $("r-next").addEventListener("click",next);
+  $("manual").addEventListener("submit",function(ev){ev.preventDefault();check($("mcode").value);$("mcode").value=""});
+
+  var video=$("video"),cv=$("cv"),ctx=cv.getContext("2d",{willReadFrequently:true}),lastTxt="",lastAt=0,stream=null;
+  $("start").addEventListener("click",function(){
+    if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){$("ph").firstChild.textContent="Este navegador no permite usar la cámara. Escribe el código abajo.";return}
+    navigator.mediaDevices.getUserMedia({video:{facingMode:"environment"},audio:false}).then(function(s){stream=s;video.srcObject=s;video.play();$("cam").classList.add("on");$("ph").style.display="none";requestAnimationFrame(loop)})
+      .catch(function(){$("ph").firstChild.textContent="No se pudo abrir la cámara. Revisa el permiso de cámara del navegador o escribe el código abajo."})});
+  function loop(){if(!stream)return;
+    if(!busy&&video.readyState>=2){var w=video.videoWidth,h=video.videoHeight,s=Math.min(w,h),sz=Math.min(640,s);cv.width=sz;cv.height=sz;
+      ctx.drawImage(video,(w-s)/2,(h-s)/2,s,s,0,0,sz,sz);var img=ctx.getImageData(0,0,sz,sz);var r=jsQR(img.data,sz,sz,{inversionAttempts:"dontInvert"});
+      if(r&&r.data&&(r.data!==lastTxt||Date.now()-lastAt>4000)){lastTxt=r.data;lastAt=Date.now();var p=r.data.split("|");
+        if(p[0]==="XV1")check(p[1],p[2]);else{busy=true;cur=null;show("bad","No válido","QR desconocido","Este QR no es de la invitación.",false)}}}
+    requestAnimationFrame(loop)}
+
+  function dl(name,txt){var b=new Blob([txt],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500)}
+  $("imp").addEventListener("change",function(){var file=this.files[0];if(!file)return;var r=new FileReader();r.onload=function(){try{var j=JSON.parse(r.result),inv=Array.isArray(j)?j:j.invitados;if(!Array.isArray(inv))throw 0;
+      list=inv.filter(function(f){return f&&f.n&&f.c}).map(function(f){return{n:String(f.n).slice(0,60),p:Math.max(1,Math.min(30,+f.p||1)),t:f.t||"",c:String(f.c).toUpperCase().replace(/[^A-Z0-9]/g,""),s:f.s||"pend",k:+f.k||0,d:+f.d||0}});
+      localStorage.setItem(KEY,JSON.stringify(list));stats();alert("Lista cargada: "+list.length+" familias.")}catch(e){alert("Ese archivo no es un respaldo válido del panel.")}};r.readAsText(file);this.value=""});
+  $("exp").addEventListener("click",function(){dl("entradas-xv-"+new Date().toISOString().slice(0,10)+".json",JSON.stringify({v:1,invitados:list,entradas:ent},null,1))});
+  $("reset").addEventListener("click",function(){if(confirm("¿Borrar todas las entradas registradas en este celular? (La lista de invitados no se borra)")){ent={};saveE();stats()}});
+  window.addEventListener("storage",function(){list=load(KEY,[]);ent=load(EKEY,{});stats()});
+  stats();
+})();
+</script>
+</body>
+</html>

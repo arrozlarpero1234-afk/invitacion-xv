@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Panel de invitados · XV Valentina</title>
+<meta name="theme-color" content="#1E2340">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--night:#1E2340;--night2:#2B3158;--gold:#C9A96E;--gold-d:#9C7C42;--blush:#F3E6E3;--ivory:#FBF8F3;--ink:#2A2730;--muted:#6B6472;--line:#E6DED3;--ok:#2E7D4F;--warn:#B7791F;--bad:#B03A3A;
+--script:"Pinyon Script",cursive;--sans:"Montserrat",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.5}
+header{background:var(--night);color:#fff;padding:18px 16px 14px}
+header .in{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header h1{font-family:var(--script);font-weight:400;font-size:40px;line-height:1;margin:0;color:var(--gold)}
+header p{margin:2px 0 0;color:#C9CBE0;font-size:13px}
+header nav{display:flex;gap:8px;flex-wrap:wrap}
+main{max-width:980px;margin:0 auto;padding:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+h2{font-size:15px;margin:0 0 12px;text-transform:uppercase;letter-spacing:.08em;color:var(--night)}
+label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:4px}
+input,select,textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.row{display:grid;grid-template-columns:2fr 1fr 1.4fr auto;gap:10px;align-items:end}
+@media(max-width:640px){.row{grid-template-columns:1fr 1fr}.row .f-name{grid-column:1/-1}.row .f-btn{grid-column:1/-1}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:600 13px var(--sans);padding:10px 14px;border-radius:10px;border:1px solid var(--night);background:var(--night);color:#fff;cursor:pointer;text-decoration:none;white-space:nowrap;min-height:40px}
+.btn.line{background:#fff;color:var(--night)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--night)}
+.btn.wa{background:#1F8A55;border-color:#1F8A55}
+.btn.sm{padding:7px 10px;font-size:12px;min-height:34px}
+.btn.del{background:#fff;color:var(--bad);border-color:#E7C3C3}
+header .btn.line{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+@media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.stat b{display:block;font-size:26px;color:var(--night);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.tools input{flex:1 1 200px;width:auto}
+.list{display:flex;flex-direction:column;gap:10px}
+.fam{border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;grid-template-columns:1fr auto;gap:8px 12px;background:#fff}
+.fam .nm{font-weight:700;font-size:16px;color:var(--night)}
+.fam .meta{font-size:12px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.code{font-family:ui-monospace,Menlo,monospace;background:var(--blush);padding:2px 7px;border-radius:6px;color:var(--night);font-weight:700;letter-spacing:.06em}
+.st{display:flex;gap:6px;align-items:center}
+.st select{width:auto;padding:6px 8px;font-size:12px}
+.st input{width:62px;padding:6px 8px;font-size:12px}
+.acts{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
+.pill{font-size:11px;font-weight:700;padding:3px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:.05em}
+.p-pend{background:#F1EEE8;color:var(--muted)}.p-si{background:#DDF1E5;color:var(--ok)}.p-no{background:#F6DEDE;color:var(--bad)}.p-in{background:#E3E6F7;color:var(--night)}
+.empty{text-align:center;color:var(--muted);padding:26px 10px}
+.note{font-size:12px;color:var(--muted);margin:8px 0 0}
+details summary{cursor:pointer;font-weight:600;color:var(--night)}
+textarea{min-height:110px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(30px);background:var(--night);color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;opacity:0;transition:.25s;pointer-events:none;z-index:9}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog{border:0;border-radius:16px;padding:20px;max-width:92vw;width:360px;text-align:center}
+dialog::backdrop{background:rgba(20,22,40,.6)}
+#qrbig svg{width:240px;height:240px}
+.edit{grid-column:1/-1;display:none;gap:8px;grid-template-columns:2fr 1fr 1.4fr auto}
+.fam.editing .edit{display:grid}
+@media(max-width:640px){.edit{grid-template-columns:1fr 1fr}.edit .e-name{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<header>
+  <div class="in">
+    <div><h1>Panel de invitados</h1><p>XV años de Valentina · crea una invitación para cada familia</p></div>
+    <nav><a class="btn line sm" href="./" target="_blank" rel="noopener">Ver invitación</a><a class="btn gold sm" href="acceso.html">Escáner de entrada</a></nav>
+  </div>
+</header>
+<main>
+  <div class="stats">
+    <div class="stat"><b id="s-fam">0</b><span>Familias</span></div>
+    <div class="stat"><b id="s-pas">0</b><span>Pases asignados</span></div>
+    <div class="stat"><b id="s-si">0</b><span>Personas confirmadas</span></div>
+    <div class="stat"><b id="s-in">0</b><span>Ya entraron</span></div>
+  </div>
+
+  <section class="card">
+    <h2>Nueva invitación</h2>
+    <form id="add" class="row" autocomplete="off">
+      <div class="f-name"><label for="a-name">Nombre de la familia</label><input id="a-name" maxlength="60" placeholder="Familia Pérez López" required></div>
+      <div><label for="a-p">Pases</label><input id="a-p" type="number" min="1" max="30" value="4" required></div>
+      <div><label for="a-tel">WhatsApp (opcional)</label><input id="a-tel" inputmode="tel" placeholder="33 1234 5678"></div>
+      <div class="f-btn"><button class="btn" type="submit">Crear invitación</button></div>
+    </form>
+    <details style="margin-top:14px">
+      <summary>Agregar varias familias de un jalón</summary>
+      <p class="note">Una por renglón: <b>nombre, pases, teléfono</b> (el teléfono es opcional).<br>Ej.: <i>Familia Ramírez, 5, 3312345678</i></p>
+      <textarea id="bulk" placeholder="Familia Ramírez, 5&#10;Familia Torres, 3, 3311112222"></textarea>
+      <p style="margin:10px 0 0"><button class="btn line" id="bulkBtn" type="button">Agregar todas</button></p>
+    </details>
+  </section>
+
+  <section class="card">
+    <h2>Invitados</h2>
+    <div class="tools">
+      <input id="q" type="search" placeholder="Buscar familia o código…" aria-label="Buscar">
+      <select id="fil" aria-label="Filtrar" style="width:auto"><option value="">Todas</option><option value="pend">Pendientes</option><option value="si">Confirmaron</option><option value="no">No asistirán</option></select>
+    </div>
+    <div class="list" id="list"></div>
+  </section>
+
+  <section class="card">
+    <h2>Respaldo y otros dispositivos</h2>
+    <p class="note" style="margin:0 0 12px">La lista se guarda en este teléfono/computadora. Descarga un respaldo seguido y, para usar el escáner en otro celular, abre ahí <b>Escáner de entrada</b> y carga este mismo archivo.</p>
+    <div class="tools">
+      <button class="btn line" id="exp" type="button">Descargar respaldo</button>
+      <label class="btn line" style="margin:0;color:var(--night);font-size:13px">Cargar respaldo<input id="imp" type="file" accept=".json,application/json" hidden></label>
+      <button class="btn line" id="csv" type="button">Exportar a Excel (CSV)</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Mensaje que se envía</h2>
+    <textarea id="tpl" maxlength="600"></textarea>
+    <p class="note">Usa {familia}, {pases} y {link}; se reemplazan solos en cada invitación.</p>
+  </section>
+</main>
+
+<dialog id="dlg"><div id="qrbig"></div><p id="dlgName" style="font-weight:700;margin:8px 0 2px"></p><p class="note" id="dlgInfo" style="margin:0 0 14px"></p><button class="btn" id="dlgClose" type="button">Cerrar</button></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/qrcode.min.js"></script>
+<script>
+(function(){
+  var KEY="xv_valentina_invitados", EKEY="xv_valentina_entradas", TKEY="xv_valentina_msg";
+  var DEF_TPL="¡Hola, {familia}! 💌\nCon mucho cariño te invito a celebrar mis XV años.\nEsta es tu invitación personal con {pases}:\n{link}\n\nPor favor confirma tu asistencia desde la invitación. ¡Te espero! — Valentina";
+  var base=location.href.replace(/[?#].*$/,"").replace(/[^\/]*$/,"");
+  var data=load(KEY,[]), ent=load(EKEY,{});
+  function load(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){toast("No se pudo guardar")}render()}
+  var $=function(id){return document.getElementById(id)};
+  var tpl=$("tpl");tpl.value=load(TKEY,null)||DEF_TPL;
+  tpl.addEventListener("input",function(){try{localStorage.setItem(TKEY,JSON.stringify(tpl.value))}catch(e){}});
+
+  var AL="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  function newCode(){var c,used={};data.forEach(function(f){used[f.c]=1});
+    do{var r=new Uint32Array(6);crypto.getRandomValues(r);c="";for(var i=0;i<6;i++)c+=AL[r[i]%AL.length]}while(used[c]);return c}
+  function cleanTel(t){t=(t||"").replace(/\D/g,"");if(t.length===10)t="52"+t;return t}
+  function link(f){return base+"?f="+encodeURIComponent(f.n)+"&p="+f.p+"&c="+f.c}
+  function pasesTxt(p){return p+(p==1?" pase":" pases")}
+  function msg(f){return tpl.value.split("{familia}").join(f.n).split("{pases}").join(pasesTxt(f.p)).split("{link}").join(link(f))}
+  function add(n,p,tel){n=(n||"").trim().slice(0,60);p=Math.max(1,Math.min(30,parseInt(p,10)||1));if(!n)return false;
+    data.push({n:n,p:p,t:cleanTel(tel),c:newCode(),s:"pend",k:0,d:Date.now()});return true}
+
+  $("add").addEventListener("submit",function(e){e.preventDefault();
+    if(add($("a-name").value,$("a-p").value,$("a-tel").value)){save();toast("Invitación creada");$("a-name").value="";$("a-tel").value="";$("a-name").focus()}});
+  $("bulkBtn").addEventListener("click",function(){var n=0;$("bulk").value.split(/\n/).forEach(function(l){var x=l.split(/[,;\t]/);if(x[0]&&x[0].trim()&&add(x[0],x[1]||1,x[2]))n++});
+    if(n){save();$("bulk").value="";toast(n+" familias agregadas")}else toast("No encontré renglones válidos")});
+
+  function toast(t){var el=$("toast");el.textContent=t;el.classList.add("on");clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove("on")},2200)}
+  function copy(t){if(navigator.clipboard&&isSecureContext)navigator.clipboard.writeText(t).then(function(){toast("Copiado")},fallback);else fallback();
+    function fallback(){var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");toast("Copiado")}catch(e){prompt("Copia el texto:",t)}a.remove()}}
+  function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
+  function btn(txt,cls,fn,href){var b=el(href?"a":"button","btn sm "+(cls||""),txt);if(href){b.href=href;b.target="_blank";b.rel="noopener noreferrer"}else{b.type="button";b.addEventListener("click",fn)}return b}
+
+  function render(){
+    ent=load(EKEY,{});
+    var q=$("q").value.trim().toLowerCase(),fil=$("fil").value,L=$("list");L.textContent="";
+    var tp=0,ts=0,ti=0;
+    data.forEach(function(f){tp+=f.p;if(f.s==="si")ts+=(f.k||f.p);ti+=(ent[f.c]&&ent[f.c].n)||0});
+    $("s-fam").textContent=data.length;$("s-pas").textContent=tp;$("s-si").textContent=ts;$("s-in").textContent=ti;
+    var shown=data.filter(function(f){return (!q||f.n.toLowerCase().indexOf(q)>-1||f.c.toLowerCase().indexOf(q)>-1)&&(!fil||f.s===fil)});
+    if(!shown.length){L.appendChild(el("div","empty",data.length?"No hay resultados.":"Aún no hay invitaciones. Crea la primera arriba."));return}
+    shown.slice().reverse().forEach(function(f){
+      var box=el("div","fam"),l=el("div");
+      l.appendChild(el("div","nm",f.n));
+      var m=el("div","meta");m.appendChild(el("span",null,pasesTxt(f.p)));m.appendChild(el("span","code",f.c));
+      var pl={pend:["Pendiente","p-pend"],si:["Confirmó","p-si"],no:["No asistirá","p-no"]}[f.s]||["Pendiente","p-pend"];
+      m.appendChild(el("span","pill "+pl[1],pl[0]));
+      var e=ent[f.c];if(e&&e.n)m.appendChild(el("span","pill p-in","Entraron "+e.n+"/"+f.p));
+      if(f.t)m.appendChild(el("span",null,"📱 "+f.t.replace(/^52/,"")));
+      l.appendChild(m);box.appendChild(l);
+      var st=el("div","st"),sel=el("select");sel.setAttribute("aria-label","Estado de "+f.n);
+      [["pend","Pendiente"],["si","Confirmó"],["no","No asistirá"]].forEach(function(o){var op=el("option",null,o[1]);op.value=o[0];if(f.s===o[0])op.selected=true;sel.appendChild(op)});
+      var k=el("input");k.type="number";k.min=0;k.max=f.p;k.value=f.s==="si"?(f.k||f.p):"";k.placeholder="#";k.title="Cuántos confirmaron";k.setAttribute("aria-label","Personas confirmadas de "+f.n);k.disabled=f.s!=="si";
+      sel.addEventListener("change",function(){f.s=sel.value;if(f.s==="si"&&!f.k)f.k=f.p;save()});
+      k.addEventListener("change",function(){f.k=Math.max(0,Math.min(f.p,parseInt(k.value,10)||0));save()});
+      st.appendChild(sel);st.appendChild(k);box.appendChild(st);
+      var a=el("div","acts");
+      a.appendChild(btn("Enviar por WhatsApp","wa",null,"https://wa.me/"+(f.t||"")+"?text="+encodeURIComponent(msg(f))));
+      a.appendChild(btn("Copiar mensaje","line",function(){copy(msg(f))}));
+      a.appendChild(btn("Copiar link","line",function(){copy(link(f))}));
+      a.appendChild(btn("Ver","line",null,link(f)));
+      a.appendChild(btn("QR de entrada","line",function(){showQR(f)}));
+      a.appendChild(btn("Editar","line",function(){box.classList.toggle("editing")}));
+      a.appendChild(btn("Borrar","del",function(){if(confirm("¿Borrar la invitación de "+f.n+"? Su link dejará de servir en la entrada.")){data.splice(data.indexOf(f),1);save()}}));
+      box.appendChild(a);
+      var ed=el("form","edit");
+      var en=el("input");en.className="e-name";en.value=f.n;en.maxLength=60;en.setAttribute("aria-label","Nombre");
+      var ep=el("input");ep.type="number";ep.min=1;ep.max=30;ep.value=f.p;ep.setAttribute("aria-label","Pases");
+      var et=el("input");et.value=f.t?f.t.replace(/^52/,""):"";et.placeholder="WhatsApp";et.setAttribute("aria-label","WhatsApp");
+      var sb=el("button","btn sm","Guardar");sb.type="submit";
+      ed.appendChild(en);ed.appendChild(ep);ed.appendChild(et);ed.appendChild(sb);
+      ed.addEventListener("submit",function(ev){ev.preventDefault();var nn=en.value.trim().slice(0,60);if(!nn)return;
+        if((nn!==f.n||+ep.value!==f.p)&&!confirm("Al cambiar nombre o pases el link cambia: tendrás que mandarle el link nuevo. ¿Continuar?"))return;
+        f.n=nn;f.p=Math.max(1,Math.min(30,parseInt(ep.value,10)||1));f.t=cleanTel(et.value);if(f.k>f.p)f.k=f.p;save();toast("Guardado")});
+      box.appendChild(ed);L.appendChild(box)});
+  }
+  $("q").addEventListener("input",render);$("fil").addEventListener("change",render);
+  window.addEventListener("storage",render);window.addEventListener("focus",render);
+
+  function showQR(f){var qr=qrcode(0,"M");qr.addData("XV1|"+f.c+"|"+f.n+"|"+f.p,"Byte");qr.make();
+    $("qrbig").innerHTML=qr.createSvgTag({cellSize:6,margin:2,scalable:true});$("dlgName").textContent=f.n;$("dlgInfo").textContent=pasesTxt(f.p)+" · Código "+f.c;$("dlg").showModal()}
+  $("dlgClose").addEventListener("click",function(){$("dlg").close()});
+
+  function dl(name,txt,type){var b=new Blob([txt],{type:type}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500)}
+  var stamp=function(){return new Date().toISOString().slice(0,10)};
+  $("exp").addEventListener("click",function(){dl("invitados-xv-"+stamp()+".json",JSON.stringify({v:1,invitados:data,entradas:load(EKEY,{})},null,1),"application/json")});
+  $("imp").addEventListener("change",function(){var file=this.files[0];if(!file)return;var r=new FileReader();r.onload=function(){try{var j=JSON.parse(r.result);var inv=Array.isArray(j)?j:j.invitados;
+      if(!Array.isArray(inv))throw 0;if(data.length&&!confirm("Esto reemplaza la lista actual ("+data.length+" familias) por la del archivo ("+inv.length+"). ¿Continuar?"))return;
+      data=inv.filter(function(f){return f&&f.n&&f.c}).map(function(f){return{n:String(f.n).slice(0,60),p:Math.max(1,Math.min(30,+f.p||1)),t:cleanTel(f.t),c:String(f.c).toUpperCase().replace(/[^A-Z0-9]/g,""),s:["si","no"].indexOf(f.s)>-1?f.s:"pend",k:+f.k||0,d:+f.d||Date.now()}});
+      if(j.entradas&&typeof j.entradas==="object")localStorage.setItem(EKEY,JSON.stringify(j.entradas));
+      save();toast("Lista cargada")}catch(e){toast("Ese archivo no es un respaldo válido")}};r.readAsText(file);this.value=""});
+  $("csv").addEventListener("click",function(){var e=load(EKEY,{});var rows=[["Familia","Pases","Código","Estado","Confirmados","Entraron","WhatsApp","Link"]];
+    data.forEach(function(f){rows.push([f.n,f.p,f.c,{pend:"Pendiente",si:"Confirmó",no:"No asistirá"}[f.s],f.s==="si"?(f.k||f.p):0,(e[f.c]&&e[f.c].n)||0,f.t,link(f)])});
+    dl("invitados-xv-"+stamp()+".csv","﻿"+rows.map(function(r){return r.map(function(v){v=String(v==null?"":v);if(/^[=+\-@]/.test(v))v="'"+v;return '"'+v.replace(/"/g,'""')+'"'}).join(",")}).join("\r\n"),"text/csv")});
+  render();
+})();
+</script>
+</body>
+</html>
