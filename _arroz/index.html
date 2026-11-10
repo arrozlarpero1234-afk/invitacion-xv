@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arroz Studio | Páginas web e invitaciones digitales en Zapopan</title>
+<meta name="description" content="Páginas web para negocios de Zapopan y Tesistán desde $299: tus productos, tu ubicación y un botón para que te pidan por WhatsApp. También invitaciones digitales con QR.">
+<meta name="theme-color" content="#141A3D">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+<meta property="og:title" content="Arroz Studio | Páginas web e invitaciones digitales">
+<meta property="og:description" content="Tu negocio en internet esta misma semana. Páginas desde $299 con pedidos por WhatsApp.">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#141A3D;--ink-2:#24307A;--paper:#F4F5FA;--card:#FFFFFF;--line:#DFE2EE;
+  --text:#1D2033;--muted:#555A73;--on-dark:#FFFFFF;--on-dark-2:#C9CDF0;
+  --primary:#FF7A3D;--primary-d:#E8602A;--gold:#FFB547;--ok:#1F8A55;--ok-d:#17703F;
+  --display:"Bricolage Grotesque","Inter",system-ui,sans-serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r-s:10px;--r-m:16px;--r-l:28px;
+  --sh-1:0 1px 2px rgba(20,26,61,.06),0 8px 24px rgba(20,26,61,.06);
+  --sh-2:0 24px 60px rgba(20,26,61,.28);
+  --w:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--text);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h2{font-size:clamp(32px,4.6vw,52px);font-weight:800}
+h3{font-size:22px;font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+.lead{font-size:19px;color:var(--muted);max-width:56ch}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:12px;top:-60px;background:var(--gold);color:var(--ink);padding:10px 14px;border-radius:var(--r-s);font-weight:600;z-index:20}
+.skip:focus{top:12px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 22px;border-radius:var(--r-s);font:600 16px/1 var(--sans);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background-color .15s,border-color .15s,transform .1s}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-wa{background:var(--ok);color:#fff}
+.btn-wa:hover{background:var(--ok-d)}
+.btn-primary{background:var(--primary);color:var(--ink)}
+.btn-primary:hover{background:var(--primary-d)}
+.btn-line{border-color:currentColor;color:inherit;background:transparent}
+.btn-line:hover{background:rgba(255,255,255,.08)}
+.btn-sm{min-height:42px;padding:0 16px;font-size:15px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:10;background:rgba(20,26,61,.96);backdrop-filter:saturate(1.4) blur(8px);color:var(--on-dark);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 20px/1 var(--display);letter-spacing:-.02em}
+.mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--primary));display:grid;place-items:center;flex:none}
+.mark svg{width:20px;height:20px}
+.brand small{font:600 13px/1 var(--sans);color:var(--gold);letter-spacing:.02em;margin-left:2px}
+.nav nav{margin-left:auto;display:flex;gap:4px}
+.nav nav a{color:var(--on-dark-2);text-decoration:none;font-size:15px;font-weight:500;padding:10px 12px;border-radius:8px}
+.nav nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
+@media (max-width:760px){.nav nav{display:none}.nav .btn{margin-left:auto}}
+
+/* hero */
+.hero{background:var(--ink);color:var(--on-dark);overflow:hidden;position:relative}
+.hero::before{content:"";position:absolute;right:-180px;top:-220px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(255,181,71,.16),transparent 65%);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:72px;padding-bottom:0;position:relative}
+.hero h1{font-size:clamp(44px,7vw,84px);font-weight:800;line-height:.98;letter-spacing:-.035em}
+.hero .lead{color:var(--on-dark-2);margin-top:22px;font-size:20px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.hero .facts{display:flex;flex-wrap:wrap;gap:10px 22px;margin:34px 0 72px;padding:0;list-style:none;color:var(--on-dark-2);font-size:15px}
+.hero .facts li{display:flex;align-items:center;gap:8px}
+.hero .facts svg{width:18px;height:18px;color:var(--gold);flex:none}
+.phone{width:300px;justify-self:center;align-self:end;margin-top:8px;border-radius:44px 44px 0 0;padding:12px 12px 0;background:#0A0E26;box-shadow:0 0 0 1.5px rgba(255,255,255,.14),var(--sh-2);position:relative}
+.phone::before{content:"";position:absolute;top:22px;left:50%;width:84px;height:22px;margin-left:-42px;border-radius:20px;background:#0A0E26;z-index:2}
+.screen{border-radius:34px 34px 0 0;overflow:hidden;height:540px;background:#fff;position:relative}
+.screen img{width:100%;height:auto;animation:scrollshot 14s 1.2s cubic-bezier(.45,0,.25,1) infinite alternate}
+@keyframes scrollshot{0%,8%{transform:translateY(0)}92%,100%{transform:translateY(calc(-100% + 540px))}}
+@media (prefers-reduced-motion:reduce){.screen img{animation:none}}
+.phone figcaption{position:absolute;left:-150px;bottom:110px;background:#fff;color:var(--ink);padding:12px 14px;border-radius:14px;box-shadow:var(--sh-1);font-size:14px;line-height:1.35;max-width:190px}
+.phone figcaption b{display:block;font-family:var(--display);font-size:16px}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:48px}
+  .hero .facts{margin-bottom:8px}
+  .phone{width:270px}.screen{height:460px}
+  @keyframes scrollshot{0%,8%{transform:translateY(0)}92%,100%{transform:translateY(calc(-100% + 460px))}}
+  .phone figcaption{left:auto;right:-14px;bottom:auto;top:90px;max-width:150px;font-size:13px}
+}
+
+/* sections */
+section{padding:112px 0}
+@media (max-width:760px){section{padding:72px 0}}
+.sec-head{display:grid;gap:16px;margin-bottom:48px;max-width:760px}
+
+/* work */
+.work-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:20px;align-items:stretch}
+.work{background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);box-shadow:var(--sh-1);display:flex;flex-direction:column;overflow:hidden}
+.work .shot{background:#E9EBF5;padding:22px 22px 0;display:flex;justify-content:center}
+.work .shot img{width:100%;max-width:220px;border-radius:18px 18px 0 0;box-shadow:0 -1px 0 rgba(0,0,0,.04),0 10px 30px rgba(20,26,61,.18);height:auto;aspect-ratio:390/600;object-fit:cover;object-position:top}
+.work.big .shot{background:#F6E5E2}
+.work.big .shot img{max-width:250px}
+.work .body{padding:22px;display:grid;gap:10px;flex:1;align-content:start}
+.work .tag{font-size:13px;font-weight:600;color:var(--muted)}
+.work p{color:var(--muted);font-size:15.5px}
+.work .go{margin-top:6px;font-weight:600;font-size:15.5px;color:var(--ink-2);text-underline-offset:4px;justify-self:start}
+.work .go:hover{color:var(--primary-d)}
+.badge{display:inline-block;font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E3F3EA;color:#14653B;justify-self:start}
+.badge.demo{background:#ECEDF5;color:var(--muted)}
+@media (max-width:900px){.work-grid{grid-template-columns:1fr 1fr}.work.big{grid-column:1/-1}}
+@media (max-width:600px){.work-grid{grid-template-columns:1fr}}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:s;border-top:2px solid var(--ink);margin:0;padding:0;list-style:none}
+.steps li{padding:26px 28px 0 0;counter-increment:s}
+.steps li::before{content:counter(s);display:block;font:800 56px/1 var(--display);color:var(--primary);margin-bottom:14px;letter-spacing:-.04em}
+.steps p{color:var(--muted);margin-top:8px;max-width:34ch}
+@media (max-width:760px){.steps{grid-template-columns:1fr}.steps li{padding-right:0;padding-bottom:18px;border-bottom:1px solid var(--line)}}
+
+/* menu board */
+.prices{background:var(--ink);color:var(--on-dark);position:relative;overflow:hidden}
+.prices .lead{color:var(--on-dark-2)}
+.board{display:grid;grid-template-columns:1fr 1fr;gap:20px 56px;margin-top:8px}
+.item{padding:26px 0;border-top:1px solid rgba(255,255,255,.14)}
+.item .row{display:flex;align-items:baseline;gap:12px}
+.item h3{font-size:28px;white-space:nowrap}
+.item .dots{flex:1;border-bottom:2px dotted rgba(255,255,255,.3);transform:translateY(-6px);min-width:20px}
+.item .price{font:800 40px/1 var(--display);color:var(--gold);letter-spacing:-.03em;white-space:nowrap}
+.item .price span{font-size:16px;font-weight:700;margin-right:2px;vertical-align:top;position:relative;top:4px}
+.item .for{color:var(--on-dark-2);margin-top:8px;font-size:16px}
+.item ul{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:7px;font-size:15.5px}
+.item li{display:flex;gap:10px;align-items:flex-start}
+.item li svg{width:18px;height:18px;flex:none;margin-top:3px;color:var(--gold)}
+.item.star{background:rgba(255,255,255,.05);border:1px solid rgba(255,181,71,.45);border-radius:var(--r-m);padding:26px 24px;margin:-1px -24px 0}
+.chip{display:inline-block;margin-left:10px;font:700 12.5px/1 var(--sans);background:var(--gold);color:var(--ink);padding:6px 9px;border-radius:999px;vertical-align:middle;position:relative;top:-4px;letter-spacing:0}
+.extras{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.extra{border:1px dashed rgba(255,255,255,.28);border-radius:var(--r-m);padding:18px 20px;font-size:15.5px;color:var(--on-dark-2)}
+.extra b{color:#fff;display:block;font-size:16px;margin-bottom:4px}
+.prices .note{margin-top:28px;color:var(--on-dark-2);font-size:15px;max-width:70ch}
+.prices .cta{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
+@media (max-width:860px){.board{grid-template-columns:1fr}.item.star{margin:0 -16px}.extras{grid-template-columns:1fr}}
+@media (max-width:420px){.item h3{font-size:23px}.item .price{font-size:32px}}
+
+/* faq */
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.qa{border-top:1px solid var(--line)}
+.qa details{border-bottom:1px solid var(--line)}
+.qa summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;font:700 19px/1.35 var(--display);position:relative;color:var(--ink)}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;border-right:2.5px solid var(--primary-d);border-bottom:2.5px solid var(--primary-d);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.qa details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.qa details p{padding:0 0 22px;color:var(--muted);max-width:62ch}
+@media (max-width:860px){.faq{grid-template-columns:1fr;gap:24px}}
+
+/* final */
+.final{padding:0 0 112px}
+.final .box{background:linear-gradient(135deg,var(--gold),var(--primary));color:var(--ink);border-radius:var(--r-l);padding:56px;display:grid;grid-template-columns:1.3fr auto;gap:32px;align-items:center}
+.final h2{font-size:clamp(30px,4vw,46px)}
+.final p{margin-top:12px;font-size:18px;max-width:52ch;color:#2A2440}
+.final .actions{display:grid;gap:12px}
+.final .btn-line:hover{background:rgba(20,26,61,.08)}
+@media (max-width:760px){.final{padding-bottom:72px}.final .box{grid-template-columns:1fr;padding:32px 24px}}
+
+footer{background:var(--ink);color:var(--on-dark-2);padding:36px 0;font-size:14.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center}
+footer .brand{color:#fff}
+footer a{color:#fff;text-underline-offset:4px}
+footer .links{display:flex;gap:20px;margin-left:auto;flex-wrap:wrap}
+
+.wa-float{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;box-shadow:0 10px 28px rgba(20,26,61,.3);z-index:9}
+.wa-float svg{width:28px;height:28px}
+.wa-float:hover{background:var(--ok-d)}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.01Zm-7.01 15.24h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.29Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.2 4.2L19 7"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path fill="none" stroke="#141A3D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Arroz Studio, inicio"><span class="mark"><svg aria-hidden="true"><use href="#i-code"/></svg></span>Arroz <small>Studio</small></a>
+    <nav aria-label="Secciones">
+      <a href="#trabajos">Trabajos</a>
+      <a href="#como">Cómo funciona</a>
+      <a href="#precios">Precios</a>
+      <a href="#preguntas">Preguntas</a>
+    </nav>
+    <a class="btn btn-wa btn-sm" data-wa="Hola, vi la página de Arroz Studio y quiero información." href="#contacto"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escríbenos</a>
+  </div>
+</header>
+
+<main id="contenido">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Tu negocio en internet esta misma semana.</h1>
+        <p class="lead">Hacemos páginas web para negocios de Zapopan y Tesistán: tus productos con foto, tu ubicación y un botón para que tus clientes te pidan directo por WhatsApp.</p>
+        <div class="cta">
+          <a class="btn btn-primary" data-wa="Hola, quiero una página para mi negocio. ¿Me das informes?" href="#contacto"><svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir mi página</a>
+          <a class="btn btn-line" href="#trabajos">Ver trabajos reales</a>
+        </div>
+        <ul class="facts">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Desde $299</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Hosting gratis</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Te mando una muestra antes de pagar</li>
+        </ul>
+      </div>
+      <figure class="phone" style="margin:0">
+        <div class="screen"><img src="img/santa-long.webp" width="390" height="2400" alt="Página de El Taller de Santa en un celular: catálogo de coronas y adornos navideños con botón de WhatsApp"></div>
+        <figcaption><b>El Taller de Santa</b>77 productos y pedidos por WhatsApp.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <section id="trabajos" aria-labelledby="t-trabajos">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="t-trabajos">Así se ven las páginas que hacemos</h2>
+        <p class="lead">Ábrelas desde tu celular, igual que las verían tus clientes.</p>
+      </div>
+      <div class="work-grid">
+        <article class="work big">
+          <div class="shot"><img src="img/santa.webp" width="390" height="844" alt="Inicio de la página de El Taller de Santa"></div>
+          <div class="body">
+            <span class="badge">Cliente</span>
+            <h3>El Taller de Santa</h3>
+            <p>Decoración navideña hecha a mano. Catálogo de 77 productos con buscador, categorías y un botón "Lo quiero" que manda el pedido por WhatsApp.</p>
+            <a class="go" href="https://eltallerdesanta-mx.netlify.app/" target="_blank" rel="noopener">Ver la página</a>
+          </div>
+        </article>
+        <article class="work">
+          <div class="shot"><img src="img/xv.webp" width="390" height="844" alt="Portada de una invitación digital de XV años"></div>
+          <div class="body">
+            <span class="badge demo">Muestra</span>
+            <h3>Invitación de XV años</h3>
+            <p>Una invitación para cada familia con sus pases, confirmación por WhatsApp y QR para entrar al salón.</p>
+            <a class="go" href="https://arrozlarpero1234-afk.github.io/invitacion-xv/?f=Familia%20Ram%C3%ADrez&amp;p=4" target="_blank" rel="noopener">Ver la invitación</a>
+          </div>
+        </article>
+        <article class="work">
+          <div class="shot"><img src="img/creperie.webp" width="390" height="844" alt="Propuesta de página para una crepería"></div>
+          <div class="body">
+            <span class="badge demo">Muestra</span>
+            <h3>Propuesta para crepería</h3>
+            <p>Menú, horario, ubicación y pedidos para llevar. Así se vería la página de un café de la zona.</p>
+            <a class="go" href="https://arrozlarpero1234-afk.github.io/lacreperie/" target="_blank" rel="noopener">Ver la propuesta</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="como" aria-labelledby="t-como" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="t-como">Cómo funciona</h2>
+        <p class="lead">Sin contratos ni juntas. Todo se platica por WhatsApp.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Me escribes</h3><p>Me mandas tus fotos, tus productos o servicios y tus datos. Si ya tienes Facebook o un catálogo en PDF, con eso me basta.</p></li>
+        <li><h3>Te mando una muestra</h3><p>En 1 a 3 días te paso un link para que veas tu página en tu celular. Le cambiamos lo que quieras.</p></li>
+        <li><h3>Se publica</h3><p>Cuando te gusta, pagas y queda en línea con su propio link para compartir en tus redes y en WhatsApp.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="precios" class="prices" aria-labelledby="t-precios">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="t-precios">Precios de lanzamiento</h2>
+        <p class="lead">Un solo pago. El hosting va por nuestra cuenta.</p>
+      </div>
+      <div class="board">
+        <div class="item">
+          <div class="row"><h3>Básico</h3><span class="dots" aria-hidden="true"></span><span class="price"><span>$</span>299</span></div>
+          <p class="for">Para empezar a aparecer en internet.</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Una página con fotos de tus productos o servicios</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Botón de WhatsApp y llamada</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Ubicación en el mapa y horario</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Lista en 3 días</li>
+          </ul>
+        </div>
+        <div class="item star">
+          <div class="row"><h3>Negocio<span class="chip">El más pedido</span></h3><span class="dots" aria-hidden="true"></span><span class="price"><span>$</span>699</span></div>
+          <p class="for">Para vender por catálogo.</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Todo lo del Básico</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Catálogo completo con buscador y categorías</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Botón "Lo quiero" en cada producto que manda el pedido por WhatsApp</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Tus redes sociales</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>1 mes de cambios gratis</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="row"><h3>Pro</h3><span class="dots" aria-hidden="true"></span><span class="price"><span>$</span>1,199</span></div>
+          <p class="for">Para que tu marca se vea como de las grandes.</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Todo lo de Negocio</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Diseño hecho a tu medida</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Secciones de promociones, galería y reseñas</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Conectamos tu dominio .com.mx</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>3 meses de cambios gratis</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Contrátanos 2 veces y la 3.ª va gratis</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="row"><h3>Invitación digital</h3><span class="dots" aria-hidden="true"></span><span class="price"><span>$</span>249</span></div>
+          <p class="for">XV años, bodas, bautizos y cumpleaños.</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Una invitación para cada familia con su número de pases</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Cuenta regresiva, ubicación y confirmación por WhatsApp</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Código QR para entrar al evento</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Panel para llevar tus invitados y álbum de fotos</li>
+          </ul>
+        </div>
+      </div>
+      <div class="extras">
+        <div class="extra"><b>Dominio propio (opcional)</b>Lo pagas tú y queda a tu nombre: un .com.mx cuesta aprox. $150 a $400 el primer año. Te decimos dónde comprarlo y cuánto es la renovación.</div>
+        <div class="extra"><b>Conectar tu dominio: +$100</b>Incluido en el plan Pro.</div>
+        <div class="extra"><b>Sin dominio también funciona</b>Tu página queda gratis en un link como tunegocio.netlify.app.</div>
+      </div>
+      <p class="note">Precios en pesos mexicanos, por pago único. Los cambios después del periodo gratis se cotizan según lo que necesites.</p>
+      <div class="cta">
+        <a class="btn btn-primary" data-wa="Hola, me interesa un plan de Arroz Studio. ¿Me das más información?" href="#contacto"><svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir informes por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="preguntas" aria-labelledby="t-preguntas">
+    <div class="wrap faq">
+      <div class="sec-head" style="margin:0">
+        <h2 id="t-preguntas">Preguntas frecuentes</h2>
+        <p class="lead">¿Tienes otra duda? Escríbenos por WhatsApp.</p>
+      </div>
+      <div class="qa">
+        <details><summary>¿Tengo que pagar antes de ver mi página?</summary><p>No. Primero te mandamos una muestra con tus fotos y tus datos. Pagas cuando te gusta cómo quedó.</p></details>
+        <details><summary>¿Cuánto tiempo tarda?</summary><p>El plan Básico queda en unos 3 días. Negocio y Pro tardan de 3 a 7 días, según cuántos productos tengas y qué tan rápido nos mandes la información.</p></details>
+        <details><summary>¿Qué necesito mandar?</summary><p>Fotos de tus productos o servicios, precios si quieres mostrarlos, tu horario, tu dirección y tu WhatsApp. Si ya tienes un catálogo en PDF o en Facebook, lo sacamos de ahí.</p></details>
+        <details><summary>¿Hay pagos mensuales?</summary><p>No cobramos mensualidad. El hosting va incluido. Lo único que se paga cada año es el dominio, y solo si decides tener uno propio.</p></details>
+        <details><summary>¿Puedo cambiar cosas después?</summary><p>Sí. Negocio incluye 1 mes de cambios gratis y Pro incluye 3 meses. Después, los cambios se cotizan aparte y suelen ser rápidos y baratos.</p></details>
+        <details><summary>¿Cómo pago?</summary><p>Por transferencia o depósito. Te pasamos los datos cuando apruebes tu muestra.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="final" id="contacto">
+    <div class="wrap">
+      <div class="box">
+        <div>
+          <h2>Platícanos de tu negocio</h2>
+          <p>Mándanos un mensaje con el nombre de tu negocio y lo que vendes. Te contestamos con una idea de cómo se vería tu página.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-wa" data-wa="Hola, quiero una página para mi negocio. ¿Me das informes?" href="https://www.facebook.com/profile.php?id=61596310354893" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribir por WhatsApp</a>
+          <a class="btn btn-line" href="https://www.facebook.com/profile.php?id=61596310354893" target="_blank" rel="noopener">Ver Arroz Studio en Facebook</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#"><span class="mark"><svg aria-hidden="true"><use href="#i-code"/></svg></span>Arroz <small>Studio</small></a>
+    <span>Páginas web e invitaciones digitales en Zapopan, Jalisco.</span>
+    <div class="links">
+      <a href="https://www.facebook.com/profile.php?id=61596310354893" target="_blank" rel="noopener">Facebook</a>
+      <a href="#precios">Precios</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" data-wa="Hola, vi la página de Arroz Studio y quiero información." href="#contacto" aria-label="Escribir por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+
+<script>
+(function(){
+  /* Pon aquí tu número de WhatsApp con lada: 52 + 10 dígitos, ej. "523312345678". Si está vacío, los botones llevan a Facebook. */
+  var WHATSAPP = "";
+  var FB = "https://www.facebook.com/profile.php?id=61596310354893";
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    a.href = WHATSAPP ? "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(a.getAttribute("data-wa")) : FB;
+    a.target = "_blank"; a.rel = "noopener";
+  });
+})();
+</script>
+</body>
+</html>
